@@ -9,7 +9,6 @@
 # install Java JDK 1.8+ as a pre-requisit for maven to run.
 
 sudo hostnamectl set-hostname maven-server
-cd /opt #3rd party applications are installed here
 sudo yum install wget -y 
 sudo yum install tree -y
 sudo yum install unzip -y
@@ -21,6 +20,7 @@ git --version
 
 #Download and install Maven using wget
 #Step1) Download the Maven Software
+cd /opt #3rd party applications are installed here
 sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bin.zip
 sudo unzip apache-maven-3.9.3-bin.zip
 sudo rm -rf apache-maven-3.9.3-bin.zip
