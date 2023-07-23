@@ -3,31 +3,50 @@
 # Website: www.473tech.com
 # Created Date: Fri Jul 21 12:32:08 EDT 2023
 # Author: Tolulope Gbadamosi
-# Note(Optional): 
+# Note(Optional): It performs the following actions:
+    # 1. Set the host name (optional)
+    # 2. Install necessary tools (wget, tree, unzip, git)
+    # 3. Install JDKs (OpenJDK 1.8 and 11) required by Maven
+    # 4. Download and install Maven
+    # 5. Set environmental variables necessary for Maven
 
-
-# install Java JDK 1.8+ as a pre-requisit for maven to run.
+# Optionally set the hostname for the server. If you wish to change the hostname, 
 
 sudo hostnamectl set-hostname maven-server
-sudo yum install wget -y 
-sudo yum install tree -y
-sudo yum install unzip -y
-sudo yum install git-all -y
+
+# Install necessary utilities
+echo "Installing necessary utilities: wget, tree, unzip, git..."
+sudo yum install wget tree unzip git-all -y
+
+# Install Java JDK 1.8 and JDK 11 - Maven pre-requisites
+echo "Installing Java JDKs..."
 sudo yum install java-11-openjdk-devel java-1.8.0-openjdk-devel -y
+
+# Check the installed versions of Java and Git
+echo "Java version:"
 java -version
+
+echo "Git version:"
 git --version
 
-
-#Download and install Maven using wget
-#Step1) Download the Maven Software
-cd /opt #3rd party applications are installed here
+# Download and install Maven
+echo "Downloading and installing Maven..."
+cd /opt 
 sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bin.zip
 sudo unzip apache-maven-3.9.3-bin.zip
 sudo rm -rf apache-maven-3.9.3-bin.zip
 sudo mv apache-maven-3.9.3/ maven
 
-#Set environmental variables
-vi ~/.bash_profile  # and add the lines below
-export M2_HOME=/opt/maven
-export PATH=$PATH:$M2_HOME/bin
+# Set environment variables
+# We use 'tee' to safely write to files with sudo privileges
+echo "Setting Maven environment variables..."
+echo -e "\n# Maven environment variables" | sudo tee -a ~/.bash_profile
+echo "export M2_HOME=/opt/maven" | sudo tee -a ~/.bash_profile
+echo "export PATH=\$PATH:\$M2_HOME/bin" | sudo tee -a ~/.bash_profile
+
+# Apply the changes to the current session
+source ~/.bash_profile
+
+# Check Maven version
+echo "Maven version:"
 mvn --version
