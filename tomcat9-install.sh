@@ -40,7 +40,7 @@ sudo mv apache-tomcat-9.0.78 tomcat9
 sudo chmod 777 -R /opt/tomcat9
 
 # Change the ownership of the tomcat directory to 'admin' user
-sudo chown admin -R /opt/tomcat9
+sudo chown ec2-user -R /opt/tomcat9
 
 # Start the Tomcat server
 sh /opt/tomcat9/bin/startup.sh
