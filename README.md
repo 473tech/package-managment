@@ -5,7 +5,7 @@ This repository provides convenient installation scripts for various Linux and D
 
 Supported Packages
 
-Maven
+Maven,
 Tomcat
 
 Clone this repository: https://github.com/473tech/package-managment.git
