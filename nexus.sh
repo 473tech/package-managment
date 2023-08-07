@@ -46,8 +46,8 @@ sudo systemctl enable nexus
 sudo systemctl start nexus
 sudo systemctl status nexus
 
-# Print a message indicating the end of the Nexus installation
-echo "end of nexus installation"
+
+
 
 
 
