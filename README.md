@@ -6,7 +6,9 @@ This repository provides convenient installation scripts for various Linux and D
 Supported Packages
 
 Maven,
-Tomcat
+Tomcat,
+Sonarqube,
+Nexus
 
 Clone this repository: https://github.com/473tech/package-managment.git
 
