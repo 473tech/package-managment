@@ -8,7 +8,8 @@ Supported Packages
 Maven,
 Tomcat,
 Sonarqube,
-Nexus
+Nexus,
+Jenkins
 
 Clone this repository: https://github.com/473tech/package-managment.git
 
